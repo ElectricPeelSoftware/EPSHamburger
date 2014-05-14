@@ -59,7 +59,7 @@ typedef NS_ENUM(NSInteger, EPSSidebarManagerViewControllerState) {
 }
 
 - (UIBarButtonItem *)toggleItem {
-    return [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"EPSHamburgerIcon"] style:UIBarButtonItemStylePlain target:self selector:@selector(toggle:)];
+    return [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"EPSHamburgerIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(toggle:)];
 }
 
 - (void)viewDidLoad {
