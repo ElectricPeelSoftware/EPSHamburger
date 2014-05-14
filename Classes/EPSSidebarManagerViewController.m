@@ -172,3 +172,19 @@ typedef NS_ENUM(NSInteger, EPSSidebarManagerViewControllerState) {
 }
 
 @end
+
+@implementation UIViewController (EPSHamburger)
+
+- (EPSSidebarManagerViewController *)sidebarManager {
+    if ([self.parentViewController isKindOfClass:[EPSSidebarManagerViewController class]]) {
+        return self.parentViewController;
+    }
+    else if (self.parentViewController == nil) {
+        return nil;
+    }
+    else {
+        return [self.parentViewController sidebarManager];
+    }
+}
+
+@end

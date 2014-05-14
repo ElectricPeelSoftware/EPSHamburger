@@ -16,3 +16,9 @@
 - (UIBarButtonItem *)toggleItem;
 
 @end
+
+@interface UIViewController (EPSHamburger)
+
+- (EPSSidebarManagerViewController *)sidebarManager;
+
+@end
