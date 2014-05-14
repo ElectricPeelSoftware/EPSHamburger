@@ -28,6 +28,7 @@ typedef NS_ENUM(NSInteger, EPSSidebarManagerViewControllerState) {
 @property (nonatomic) UIDynamicAnimator *animator;
 @property (nonatomic) EPSSidebarBehavior *sidebarBehavior;
 
+@property (nonatomic) UITapGestureRecognizer *tapRecognizer;
 @property (nonatomic) UIPanGestureRecognizer *panRecognizer;
 
 @end
@@ -78,6 +79,7 @@ typedef NS_ENUM(NSInteger, EPSSidebarManagerViewControllerState) {
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
     [self.mainView addGestureRecognizer:tapRecognizer];
+    self.tapRecognizer = tapRecognizer;
     
     UIScreenEdgePanGestureRecognizer *screenEdgeRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(didPan:)];
     screenEdgeRecognizer.edges = UIRectEdgeLeft;
@@ -106,6 +108,7 @@ typedef NS_ENUM(NSInteger, EPSSidebarManagerViewControllerState) {
     _state = state;
     
     self.panRecognizer.enabled = state == EPSSidebarManagerViewControllerStateOpen;
+    self.tapRecognizer.enabled = state == EPSSidebarManagerViewControllerStateOpen;
 }
 
 - (void)toggle:(id)sender {
