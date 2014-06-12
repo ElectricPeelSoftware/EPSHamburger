@@ -15,6 +15,8 @@
 
 - (UIBarButtonItem *)toggleItem;
 
+- (void)toggle:(id)sender;
+
 @end
 
 @interface UIViewController (EPSHamburger)
