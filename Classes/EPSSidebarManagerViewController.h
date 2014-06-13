@@ -10,7 +10,7 @@
 
 @interface EPSSidebarManagerViewController : UIViewController
 
-- (id)initWithSidebarViewController:(UIViewController *)sidebarViewController mainViewController:(UIViewController *)mainViewController;
+- (id)initWithSidebarViewController:(UIViewController *)sidebarViewController mainViewController:(UIViewController *)mainViewController shadowImage:(UIImage *)shadowImage;
 - (void)presentNewMainViewController:(UIViewController *)mainViewController;
 
 - (UIBarButtonItem *)toggleItem;

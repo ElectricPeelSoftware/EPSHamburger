@@ -17,6 +17,8 @@ typedef NS_ENUM(NSInteger, EPSSidebarManagerViewControllerState) {
 
 @interface EPSSidebarManagerViewController () <UIDynamicAnimatorDelegate>
 
+@property (nonatomic) UIImage *shadowImage;
+
 @property (nonatomic) UIViewController *sidebarViewController;
 @property (nonatomic) UIViewController *mainViewController;
 
@@ -35,12 +37,13 @@ typedef NS_ENUM(NSInteger, EPSSidebarManagerViewControllerState) {
 
 @implementation EPSSidebarManagerViewController
 
-- (id)initWithSidebarViewController:(UIViewController *)sidebarViewController mainViewController:(UIViewController *)mainViewController {
+- (id)initWithSidebarViewController:(UIViewController *)sidebarViewController mainViewController:(UIViewController *)mainViewController shadowImage:(UIImage *)shadowImage {
     self = [super init];
     if (self == nil) return nil;
     
     self.sidebarViewController = sidebarViewController;
     self.mainViewController = mainViewController;
+    self.shadowImage = shadowImage;
     
     return self;
 }
@@ -102,6 +105,16 @@ typedef NS_ENUM(NSInteger, EPSSidebarManagerViewControllerState) {
     self.mainViewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.mainView addSubview:self.mainViewController.view];
     [self.mainViewController didMoveToParentViewController:self];
+    
+    if (self.shadowImage) {
+        UIImageView *shadowImageView = [[UIImageView alloc] initWithImage:self.shadowImage];
+        shadowImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        CGRect frame = shadowImageView.frame;
+        frame.origin.x -= CGRectGetWidth(shadowImageView.frame);
+        frame.size.height = CGRectGetHeight(self.mainView.frame);
+        shadowImageView.frame = frame;
+        [self.mainView addSubview:shadowImageView];
+    }
 }
 
 - (void)setState:(EPSSidebarManagerViewControllerState)state {
