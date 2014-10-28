@@ -2,6 +2,7 @@ Pod::Spec.new do |s|
   s.name             = "EPSHamburger"
   s.version          = "0.3"
   s.homepage         = "https://github.com/ElectricPeelSoftware/EPSHamburger"
+  s.summary          = "A simple implementation of the sidebar menu pattern."
   s.license          = "MIT"
   s.author           = { "Peter Stuart" => "peter@electricpeelsoftware.com" }
   s.source           = { :git => "https://github.com/ElectricPeelSoftware/EPSHamburger.git", :tag => s.version.to_s }
