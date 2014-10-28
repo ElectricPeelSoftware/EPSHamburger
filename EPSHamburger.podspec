@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "EPSHamburger"
-  s.version          = "0.2"
+  s.version          = "0.3"
   s.homepage         = "https://github.com/ElectricPeelSoftware/EPSHamburger"
   s.license          = "MIT"
   s.author           = { "Peter Stuart" => "peter@electricpeelsoftware.com" }

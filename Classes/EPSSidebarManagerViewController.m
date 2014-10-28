@@ -41,6 +41,7 @@ typedef NS_ENUM(NSInteger, EPSSidebarManagerViewControllerState) {
     self = [super init];
     if (self == nil) return nil;
     
+    self.openWidth = 200;
     self.sidebarViewController = sidebarViewController;
     self.mainViewController = mainViewController;
     self.shadowImage = shadowImage;
@@ -71,7 +72,7 @@ typedef NS_ENUM(NSInteger, EPSSidebarManagerViewControllerState) {
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     
     self.sidebarView = [[UIView alloc] initWithFrame:self.view.bounds];
-    self.sidebarView.backgroundColor = [UIColor greenColor];
+    self.sidebarView.backgroundColor = [UIColor colorWithRed:23.0/255.0 green:165.0/255.0 blue:84.0/255.0 alpha:1.000];
     [self.view addSubview:self.sidebarView];
     
     self.mainView = [[UIView alloc] initWithFrame:self.view.bounds];
@@ -147,7 +148,7 @@ typedef NS_ENUM(NSInteger, EPSSidebarManagerViewControllerState) {
     }
     else {
         CGPoint point = self.view.center;
-        point.x += 200;
+        point.x += self.openWidth;
         
         return point;
     }
